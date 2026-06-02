@@ -515,6 +515,7 @@ const COURSE=[
 
      {type:'step',text:'Set it up'},
      t("Create a free account at <strong>github.com</strong>. You won't learn any technical git commands — Claude handles it conversationally."),
+     {type:'callout',kind:'idea',h:'Already have a GitHub account?',html:"You can skip the setup and jump straight to the prompt below."},
      {type:'callout',kind:'idea',h:'Pick your username carefully',html:"The username you choose is <strong>public and effectively permanent</strong> — it shows up in your account, in your projects' web addresses, and anywhere you share your work. Treat it like a professional handle: pick something you'd be comfortable putting on a résumé, not an old gaming alias. (GitHub does let you rename later, but it's messy and breaks existing links, so it's far better to get it right the first time.)"},
      {type:'prompt',tag:'Say to Claude',code:"Set this project up with version control and save my current progress with a clear description. Then create a new project on GitHub for it and push my code up."},
      {type:'task',id:'t-m5l1',h:'Back up to GitHub',body:'With a GitHub account ready, send the prompt above. Follow any prompt to connect your account the first time.',items:["My todo-app appears as a repository on github.com"]},
