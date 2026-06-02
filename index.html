@@ -320,7 +320,7 @@ const COURSE=[
      {type:'quiz',id:'q-cli',q:'The command line (or Terminal) is…',opts:[
         "A dangerous, expert-only tool where one wrong command can break your computer",
         "Just another way to get around and control your computer — by typing instead of clicking",
-        "A coding language you'll need to memorize before you start"],ans:1,exp:"Exactly. It's <b>not</b> dangerous and it's <b>not</b> a GUI — it's simply a place to navigate your computer by typing. The worst a wrong command usually does is show a harmless error message, and for Claude Code you'll only ever need a few basic ones."}
+        "A coding language you'll need to memorize before you start"],ans:1,exp:"It's <b>not</b> dangerous and it's <b>not</b> a coding language — it's simply a text-based way to navigate your computer. The worst a wrong command usually does is show a harmless error message, and for Claude Code you'll only ever need a few basic ones."}
    ]},
    {id:'m1l3',title:'What you can make',sub:'From abstract to concrete.',blocks:[
      t("Claude Code is for <strong>artifacts</strong> — defined things you'd otherwise ask an engineer for, or do tediously by hand:"),
@@ -630,7 +630,8 @@ function blockHTML(b,lessonId){
         }
         return `<button class="${cls}" data-quiz="${b.id}" data-opt="${i}" ${answered?'disabled':''}>${o}${mark}</button>`;
       }).join('');
-      return `<div class="block quiz"><div class="q">${b.q}</div>${opts}<div class="explain${answered?(sel===b.ans?' show good':' show bad'):''}" id="exp_${b.id}">${b.exp}</div></div>`;
+      const expPfx=answered?(sel===b.ans?'<b class="exp-ok">Correct!</b> ':'<b class="exp-no">Not quite.</b> '):'';
+      return `<div class="block quiz"><div class="q">${b.q}</div>${opts}<div class="explain${answered?(sel===b.ans?' show good':' show bad'):''}" id="exp_${b.id}">${expPfx}${b.exp}</div></div>`;
     }
     case 'ref': return refHTML();
     case 'img': return `<figure class="block imgfig"><img src="${MEDIA[b.src]||b.src}" alt="${b.alt||''}" loading="lazy">${b.caption?`<figcaption>${b.caption}</figcaption>`:''}</figure>`;
@@ -773,7 +774,8 @@ function attachContentEvents(){
         if(i===qz.ans){o.classList.add('correct');o.insertAdjacentHTML('beforeend','<span class=\"mark\">✓</span>');}
         else if(i===sel){o.classList.add('wrong');o.insertAdjacentHTML('beforeend','<span class=\"mark\">✕</span>');}
       });
-      const exp=document.getElementById('exp_'+id); if(exp)exp.classList.add('show', sel===qz.ans?'good':'bad');
+      const exp=document.getElementById('exp_'+id);
+      if(exp){const pfx=sel===qz.ans?'<b class="exp-ok">Correct!</b> ':'<b class="exp-no">Not quite.</b> ';exp.innerHTML=pfx+qz.exp;exp.classList.add('show',sel===qz.ans?'good':'bad');}
     };
   });
   const prev=$('prevBtn');if(prev)prev.onclick=()=>{ if(FLAT[current].isRef){go(0);} else go(Math.max(0,current-1)); };
