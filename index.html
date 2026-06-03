@@ -311,7 +311,12 @@ const COURSE=[
         {id:'pt1',q:'“Explain what an API is in plain English.”',ans:'chat',why:'You just want an <strong>explanation</strong> — words back, nothing built.'},
         {id:'pt2',q:'“Build a page where my team can submit ideas.”',ans:'code',why:'This produces a <strong>real, usable thing</strong> — squarely Claude Code\'s job.'},
         {id:'pt3',q:'“Summarize this 20-page report.”',ans:'chat',why:'Again you want <strong>words back</strong>, not a built artifact.'}]},
-     {type:'check',text:"However you did, the gut-check is always the same: want <em>words back</em> → Chat; want <em>a thing that exists</em> → Claude Code."}
+     {type:'check',text:"However you did, the gut-check is always the same: want <em>words back</em> → Chat; want <em>a thing that exists</em> → Claude Code."},
+     {type:'step',text:'Where does Cowork fit in?'},
+     t("There’s a third option you might hear about: <strong>Cowork</strong>. It lives inside the Claude desktop app and lets you hand Claude a task to work on <em>in the background</em> while you keep doing other things. Think of it like saying \"go handle this and check back with me when you’re done.\""),
+     t("Cowork is great when you have a <strong>well-defined task</strong> you can fully describe up front — like \"research these five competitors and write a summary\" or \"draft a project brief from these notes.\" You kick it off and come back to a finished result."),
+     t("<strong>Claude Code is the better choice when you need to stay in the loop.</strong> Building something interactive — a prototype, a tool, a website — usually involves a back-and-forth: you see what Claude made, ask for tweaks, test it, adjust. Claude Code keeps you in that conversation while it works on your real files. If the task needs your eyes and feedback along the way, reach for Claude Code."),
+     {type:'ul',items:["A task you can fully describe and walk away from → <strong>Cowork</strong>","A task that needs iteration, feedback, or hands-on steering → <strong>Claude Code</strong>"]}
    ]},
    {id:'m1l2',title:'GUI vs. CLI',sub:'Two words you\'ll hear constantly — demystified.',blocks:[
      {type:'ul',items:["<strong>GUI</strong> (Graphical User Interface): icons, buttons, windows you click. Finder, your browser.","<strong>CLI</strong> (Command-Line Interface): a window where you <em>type</em> instructions. That's the Terminal."]},
@@ -341,7 +346,7 @@ const COURSE=[
      {type:'check',text:"If the subscription box isn't checked, sort that first — nothing past here works without it."}
    ]},
    {id:'m2l2',title:'Open the Terminal',sub:'A short guided walk-through — you\'ll have it down in five minutes.',blocks:[
-     t("Press <code>Cmd + Space</code>, type <strong>Terminal</strong>, press Return. A window with a blinking cursor appears."),
+     t("Press <code>Cmd + Space</code>, type <strong>Terminal</strong>, press Return. A window with some text and a blinking cursor appears."),
      t("Read this before you touch anything: <strong>you cannot break your computer by typing a normal command wrong.</strong> The worst that usually happens is an error message — the computer saying “I didn't understand,” not “something broke.”"),
      t("The Terminal is always “standing” in one folder at a time. We're going to walk through five tiny commands together. Type each one and press Return."),
 
@@ -379,7 +384,7 @@ const COURSE=[
    ]},
    {id:'m2l3',title:'Install Claude Code',sub:'One line. One time.',blocks:[
      {type:'callout',kind:'idea',h:'On Desktop',html:"If your team uses the Claude <strong>desktop app</strong>, Claude Code is already built in — you can skip this whole lesson. Find it by hovering over the chat icon in the app's top-left, then move on to logging in."},
-     t("In the Terminal, paste this single line and press Return. It's the official installer — it tells your Mac to fetch Claude Code from Anthropic and set it up."),
+     t("In the Terminal, paste this single line and press Return. It doesn't matter what folder you're in — this installs Claude Code globally on your Mac, so it works from anywhere. It's the official installer — it tells your Mac to fetch Claude Code from Anthropic and set it up."),
      {type:'code',tag:'Paste into the Terminal',code:"curl -fsSL https://claude.ai/install.sh | bash"},
      {type:'task',id:'t-m2l3',h:'Run the installer',body:'Run the line above and let it finish on its own — it prints progress as it goes.',items:["The installer finished without stopping on a red error"]},
      {type:'check',text:"If it errored, open a <em>fresh</em> Terminal window and try once more. (You'll learn the universal fix move in Module 4.)"}
