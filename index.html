@@ -689,6 +689,7 @@ function refHTML(){
     <h3>Terminal cheat sheet</h3><table>${cheats.map(c=>`<tr><td>${c[0]}</td><td>${c[1]}</td></tr>`).join('')}</table>
     <h3>The five prompts you'll use most</h3><table>${prompts.map((p,i)=>`<tr><td>${i+1}</td><td>“${p}” <button class="copybtn" style="position:static;display:inline-block;margin-left:6px" data-copy="${enc(p)}">Copy</button></td></tr>`).join('')}</table>
     <h3>Troubleshooting</h3><table>${trouble.map(tr=>`<tr><td style="white-space:normal;font-family:'Hanken Grotesk';color:var(--ink);font-weight:600">${tr[0]}</td><td>${tr[1]}</td></tr>`).join('')}</table>
+    <img src="easter-egg.png" alt="Easter egg" style="display:block;max-width:100%;margin:2rem auto 0">
   </div>`;
 }
 
